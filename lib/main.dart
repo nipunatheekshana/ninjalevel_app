@@ -8,7 +8,14 @@ void main() {
   );
 }
 
-class Nippacard extends StatelessWidget {
+class Nippacard extends StatefulWidget {
+  @override
+  _NippacardState createState() => _NippacardState();
+}
+
+class _NippacardState extends State<Nippacard> {
+  int ninjalevel = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,6 +25,15 @@ class Nippacard extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.grey[850],
         elevation: 0.0,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            ninjalevel += 2;
+          });
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Colors.grey[800],
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0),
@@ -67,7 +83,7 @@ class Nippacard extends StatelessWidget {
               height: 10.0,
             ),
             Text(
-              '8',
+              '$ninjalevel',
               style: TextStyle(
                 color: Colors.amberAccent[200],
                 letterSpacing: 2.0,
